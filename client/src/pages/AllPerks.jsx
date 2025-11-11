@@ -155,6 +155,7 @@ export default function AllPerks() {
                 type="text"
                 className="input"
                 placeholder="Enter perk name..."
+                value={searchQuery}  // ← ADD THIS LINE
                 onChange={e => setSearchQuery(e.target.value)}
               />
               <p className="text-xs text-zinc-500 mt-1">
@@ -169,17 +170,17 @@ export default function AllPerks() {
                 {' '}Filter by Merchant
               </label>
               <select
-                className="input"
-                onChange={e => setMerchantFilter(e.target.value)}
+              className="input"
+              value={merchantFilter}  // ← ADD THIS LINE
+              onChange={e => setMerchantFilter(e.target.value)}
               >
-                <option value="">All Merchants</option>
-                
-                {uniqueMerchants.map(merchant => (
-                  <option key={merchant} value={merchant}>
-                    {merchant}
-                  </option>
-                ))}
-              </select>
+              <option value="">All Merchants</option>
+              {uniqueMerchants.map(merchant => (
+                <option key={merchant} value={merchant}>
+                  {merchant}
+                </option>
+              ))}
+            </select>
             </div>
           </div>
 
@@ -308,4 +309,3 @@ export default function AllPerks() {
     </div>
   )
 }
-
